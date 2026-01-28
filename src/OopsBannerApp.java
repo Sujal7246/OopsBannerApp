@@ -1,12 +1,31 @@
 /**
- * UC6: Render OOPS banner using helper methods
- * Each letter pattern is generated using a separate method
+ * UC7: Render OOPS banner using CharacterPattern class
+ * Demonstrates encapsulation and object usage
  */
 public class OopsBannerApp {
 
-    // Method to return pattern for letter O
-    static String[] getOPattern() {
-        return new String[]{
+    /**
+     * Inner static class to store character and its banner pattern
+     */
+    static class CharacterPattern {
+
+        // Stores the 7-line pattern for a character
+        private final String[] pattern;
+
+        // Constructor to initialize pattern
+        CharacterPattern(String[] pattern) {
+            this.pattern = pattern;
+        }
+
+        // Getter to access pattern
+        public String[] getPattern() {
+            return pattern;
+        }
+    }
+
+    // Method to return CharacterPattern object for letter O
+    static CharacterPattern getO() {
+        return new CharacterPattern(new String[]{
                 "  *****  ",
                 " *     * ",
                 " *     * ",
@@ -14,12 +33,12 @@ public class OopsBannerApp {
                 " *     * ",
                 " *     * ",
                 "  *****  "
-        };
+        });
     }
 
-    // Method to return pattern for letter P
-    static String[] getPPattern() {
-        return new String[]{
+    // Method to return CharacterPattern object for letter P
+    static CharacterPattern getP() {
+        return new CharacterPattern(new String[]{
                 " *****   ",
                 " *    *  ",
                 " *    *  ",
@@ -27,12 +46,12 @@ public class OopsBannerApp {
                 " *       ",
                 " *       ",
                 " *       "
-        };
+        });
     }
 
-    // Method to return pattern for letter S
-    static String[] getSPattern() {
-        return new String[]{
+    // Method to return CharacterPattern object for letter S
+    static CharacterPattern getS() {
+        return new CharacterPattern(new String[]{
                 "  *****  ",
                 " *       ",
                 " *       ",
@@ -40,24 +59,24 @@ public class OopsBannerApp {
                 "       * ",
                 "       * ",
                 "  *****  "
-        };
+        });
     }
 
     // Main method
     public static void main(String[] args) {
 
-        // Get patterns for each letter
-        String[] oPattern = getOPattern();
-        String[] pPattern = getPPattern();
-        String[] sPattern = getSPattern();
+        // Create objects for each character
+        CharacterPattern o = getO();
+        CharacterPattern p = getP();
+        CharacterPattern s = getS();
 
         // Print OOPS banner row by row
         for (int i = 0; i < 7; i++) {
             System.out.println(
-                    oPattern[i] +
-                            oPattern[i] +
-                            pPattern[i] +
-                            sPattern[i]
+                    o.getPattern()[i] +
+                            o.getPattern()[i] +
+                            p.getPattern()[i] +
+                            s.getPattern()[i]
             );
         }
     }
