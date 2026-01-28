@@ -1,12 +1,12 @@
 /**
- * UC4: Render OOPS banner using String array and loop
- * Stores each banner line in an array and prints using a loop
+ * UC5: Render OOPS banner using inline array initialization
+ * Combines declaration and initialization of banner lines
  */
 public class OopsBannerApp {
 
     public static void main(String[] args) {
 
-        // String array holding all 7 lines of the OOPS banner
+        // Inline initialization of banner lines
         String[] bannerLines = {
 
                 String.join("",
@@ -31,7 +31,7 @@ public class OopsBannerApp {
                         "  *****  ", "  *****  ", " *       ", "  *****  ")
         };
 
-        // Loop to print each line of the banner
+        // Print banner using loop
         for (String line : bannerLines) {
             System.out.println(line);
         }
